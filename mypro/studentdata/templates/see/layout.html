@@ -1,0 +1,39 @@
+<html>
+<head><title>hey man</title>
+<style>
+td{
+    padding: 4pt;
+}
+th{
+    background-color: green;
+}
+tr:hover{
+    background-color: white
+}
+tr{
+    background-color: aqua;
+}
+
+
+</style>
+
+</head>
+    <body align="center">
+        <button><a href="/home">HOME</a></button>
+        <button><a href="add">add data</a></button>
+ 
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+
+
+            {% endif %}
+
+
+        {% block content %}
+        {% endblock  %}
+</body>
+</html>

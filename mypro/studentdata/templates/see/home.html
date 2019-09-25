@@ -1,0 +1,24 @@
+{% extends 'see/layout.html' %}
+  {% block content %}
+    <br>
+    <br>
+  <table align="center">
+        <th>id</th><th>name</th><th>email</th><th>Mobile</th><th>UPDATE/REMOVE</th>
+  {% for d in det %}
+                <tr>
+                <td>{{d.id}}</td>
+                <td>{{d.name}}</td>
+                <td>{{d.email}}</td>
+                <td>{{d.phno}}</td>
+                <td>
+                     <a href="/home/{{d.id}}" onclick="return confirm('Are You Sure For Delete?')">Delete</a>
+                     <a href="/upuser/{{ d.id}}">update</a>
+                 </td>
+        </tr>
+        
+            {% endfor %}
+        </table>
+        <br><br>
+      
+
+{% endblock content %}
