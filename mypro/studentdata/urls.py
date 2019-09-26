@@ -3,5 +3,7 @@ from .import views
 urlpatterns = [
     path('',views.home, name='studentdata-see' ),
     path('add/',views.adddata, name='add' ),
-   path(' home/<slug:id>',views.delet, name='delet' )
+    path('delet/<str:id>',views.delet, name='delet' ),
+    path('update/<str:id>',views.update, name='update' )
+   #path('update/<str:id>',views.delet, name='delet' )
     ]

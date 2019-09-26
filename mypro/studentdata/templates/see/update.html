@@ -1,0 +1,15 @@
+{% extends 'see/layout.html' %}
+  {% block content %}
+  <center>
+  <table>
+    <form method="POST" action="">
+    {% csrf_token %}
+       <tr><td>enter std name :<input type="text" name="name" placeholder="{{det.name}}" required /></td>
+       <td> enter std email:<input type="tex" name="email" placeholder="{{det.email}}" required/></td>
+       <td>enter std phno:<input type="number" name ="phno" placeholder="{{det.phno}}" required/></td>
+      <tr> <td><input type="submit" value="submit"></td></tr></tr>
+    </form>
+</table> 
+</center>
+
+  {% endblock content %}
