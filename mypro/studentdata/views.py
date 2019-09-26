@@ -60,19 +60,14 @@ def update(request, id):
         post.name= request.POST.get('name')
         e=post.email= request.POST.get('email')
         p=post.phno= request.POST.get('phno')
-        if post.name:
-            post.name= request.POST.get('name')
-           
+        if post.name is None:
+           post.name= request.POST.get('name')
         if post.email:
             result= e.find('@')
             if result >= 1:
                 result=e.find('.')
                 if  result >= 1:
-                    if det.objects.filter(email=e).exists():
-                        messages.error(request, f'email {e} is alredy used by some one else')
-                        return render(request,'see/update.html',s)  
-                    else:
-                        post.email= request.POST.get('email')
+                    post.email= request.POST.get('email')
                         
                 else:
                     messages.error(request, f'errror at email domail .com')
@@ -82,13 +77,7 @@ def update(request, id):
                 return render(request,'see/update.html',s)
         if post.phno:
             if len(p) == 10: 
-                if det.objects.filter(phno=p).exists():
-                    messages.error(request, f'phno {p} is alredy used by some one else')
-                    return render(request,'see/update.html',s)         
-                else:
-                    post.phno=request.POST.get('phno')
-                    
-                    
+                post.phno=request.POST.get('phno')               
             else:
                 messages.error(request, f'error at phno lenth must be 10 @')
                 return render(request,'see/update.html',s)

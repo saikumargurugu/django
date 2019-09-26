@@ -4,14 +4,19 @@
 td{
     padding: 4pt;
 }
+.nav{
+    background-color: aqua;
+    padding: 8pt;
+
+}
 th{
     background-color: green;
 }
-td:hover{
-    background-color: aqua;   
+tr:hover{
+    background-color: white
 }
-td{
-    background-color: white;
+tr{
+    background-color: aqua;
 }
 
 
@@ -19,9 +24,14 @@ td{
 
 </head>
     <body align="center">
-        <button><a href="/home">HOME</a></button>
-        <button><a href="add">add data</a></button>
- 
+        <div class="nav" >
+        {% if user.is_authenticated %}
+        <button ><a href="/home">HOME</a></button>
+        <button ><a href="add">add data</a></button>
+        <button ><a href="/logout">logout</a></button>
+        {% else %}
+        <button ><a href="/login">login</a></button>
+        {% endif %}
             {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -31,7 +41,7 @@ td{
 
 
             {% endif %}
-
+        </div>
 
         {% block content %}
         {% endblock  %}

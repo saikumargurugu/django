@@ -3,6 +3,7 @@
     <br>
     <br>
   <table align="center">
+    {% if user.is_authenticated %}
         <th>id</th><th>name</th><th>email</th><th>Mobile</th><th>UPDATE/REMOVE</th>
   {% for d in det %}
                 <tr>
@@ -11,12 +12,15 @@
                 <td>{{d.email}}</td>
                 <td>{{d.phno}}</td>
                 <td>
-                     <a href="/home/delet/{{d.id}}" onclick="return confirm('Are You Sure For Delete?')">Delete</a>
-                     <a href="update/{{d.id}}">update</a>
+                  <a href="/home/delet/{{d.id}}" onclick="return confirm('Are You Sure For Delete?')">Delete</a>
+                  <a href="update/{{d.id}}">update</a>
                  </td>
         </tr>
         
             {% endfor %}
+        {% else %}
+        <h1>you need to login to view data</h1>
+      {% endif %}
         </table>
         <br><br>
       

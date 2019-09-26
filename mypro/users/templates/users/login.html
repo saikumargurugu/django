@@ -1,0 +1,23 @@
+{% extends 'see/layout.html' %}
+  {% block content %}
+  <center>
+
+  <form method="POST">
+      <div>
+    {% csrf_token %}
+<fieldset>
+  <br>
+   username: {{ form.username }}<br><br>
+    password:{{ form.password }}<br><br>
+
+
+  </fieldset>
+<br>
+</div>
+<input type="submit">
+
+</form>
+
+</center>
+
+{% endblock content %}
