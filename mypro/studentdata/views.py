@@ -3,9 +3,11 @@ from .models import det
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.http import HttpResponse
+
+
 def home(request):
     s={
-        'det': det.objects.all()
+        'det': det.objects.all().order_by('id') 
     }
 
     return render(request,"see/home.html",s)
@@ -68,7 +70,7 @@ def update(request, id):
                 result=e.find('.')
                 if  result >= 1:
                     post.email= request.POST.get('email')
-                        
+        
                 else:
                     messages.error(request, f'errror at email domail .com')
                     return render(request,'see/update.html',s)
@@ -86,3 +88,4 @@ def update(request, id):
                         
     else:
          return render(request,'see/update.html',s)
+
