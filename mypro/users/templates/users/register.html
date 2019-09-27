@@ -7,14 +7,16 @@
     {% csrf_token %}
 <fieldset>
   <br>
-   username: {{ form.username }}<br><br>
-    password:{{ form.password1 }}<br><br>
-    confrm password:{{ form.password2 }}<br>
-
+  <table>
+   <tr><td>username:</td><td> {{ form.username }}<br><br></td></tr>
+  <tr><td>password:</td><td>{{ form.password1 }}<br><br></td></tr>
+  <tr><td>confrm password:</td><td>{{ form.password2 }}<br></td></tr>
+  </table>
+  <input type="submit">
   </fieldset>
 <br>
 </div>
-<input type="submit">
+
 
 </form>
 
