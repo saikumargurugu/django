@@ -3,11 +3,11 @@
 <style>
 td{
     padding: 4pt;
+    border: round ;
 }
 .nav{
     background-color: aqua;
     padding: 8pt;
-
 }
 th{
     background-color: green;
@@ -18,6 +18,15 @@ tr:hover{
 tr{
     background-color: aqua;
 }
+.reg{
+    margin-left: 80% ;
+}
+button{
+    background-color: aqua;
+}
+button:hover{
+    background-color:darkcyan ;
+}
 
 
 </style>
@@ -26,11 +35,12 @@ tr{
     <body align="center">
         <div class="nav" >
         {% if user.is_authenticated %}
-        <button ><a href="/home">HOME</a></button>
-        <button ><a href="add">add data</a></button>
-        <button ><a href="/logout">logout</a></button>
+        <a href="/home" class="reg"><button>HOME</button></a>
+        <a href="{% url 'add'%}" ><button >add data</button></a>
+        <a href="/logout"><button >logout</button></a>
         {% else %}
-        <button ><a href="/login">login</a></button>
+       <a href="/register" class="reg" > <button class="bt">register</button></a>
+        <a href="/login"><button  align="left">login</button></a>
         {% endif %}
             {% if messages %}
             <ul class="messages">
